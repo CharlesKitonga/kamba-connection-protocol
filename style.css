@@ -81,6 +81,8 @@ canvas {
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 20px;
     justify-content: center;
     align-items: center;
     background: rgba(255, 240, 243, 0.9);
@@ -102,7 +104,7 @@ canvas {
 
 h1 {
     font-family: var(--font-heading);
-    font-size: 5rem;
+    font-size: clamp(2rem, 8vw, 5rem);
     color: var(--accent-color);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     margin-bottom: 20px;
@@ -111,14 +113,14 @@ h1 {
 }
 
 p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 4vw, 1.2rem);
     color: #590d22;
     margin-bottom: 30px;
     text-align: center;
 }
 
 .btn {
-    padding: 15px 40px;
+    padding: 12px 30px;
     font-size: 1.2rem;
     font-family: var(--font-body);
     font-weight: 600;
@@ -144,15 +146,15 @@ p {
 }
 
 .buttons {
-    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
 .yes-btn {
     background: #2dc653;
     color: white;
-    font-size: 1.5rem;
-    padding: 20px 60px;
+    font-size: 1.2rem;
+    padding: 16px 40px;
 }
 
 .no-btn {
@@ -169,6 +171,12 @@ p {
     30% { transform: scale(1); }
     45% { transform: scale(1.1); }
     60% { transform: scale(1); }
+}
+@media(min-width: 600px){
+    .buttons {
+        flex-direction: row;
+        gap: 20px;
+    }
 }
 
 .proposal-content h1 {

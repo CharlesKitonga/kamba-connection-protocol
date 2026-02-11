@@ -30,10 +30,16 @@ const storyText = document.getElementById("story-text");
 function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+
+    // Player size proportional to width
     if (player) {
-        player.y = canvas.height - 100;
+        player.w = canvas.width * 0.12;  // 12% of screen width
+        player.h = player.w * 0.8;
+        player.y = canvas.height - player.h - 20;
+        player.x = canvas.width / 2 - player.w / 2;
     }
 }
+
 window.addEventListener('resize', resize);
 
 // =====================
@@ -74,7 +80,7 @@ class Player {
 // =====================
 class Heart {
     constructor() {
-        this.size = Math.random() * 20 + 20;
+        this.size = Math.random() * (canvas.width * 0.03) + canvas.width * 0.02;
         this.x = Math.random() * (canvas.width - this.size);
         this.y = -this.size;
         this.speed = Math.random() * 3 + 2;
@@ -217,13 +223,14 @@ function createParticles(x, y) {
 function handleInput(e) {
     if (!player) return;
 
-    const clientX =
-        e.type === 'mousemove'
-            ? e.clientX
-            : e.touches[0].clientX;
-
+    let clientX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
     player.x = clientX - player.w / 2;
+
+    // Boundaries
+    if (player.x < 0) player.x = 0;
+    if (player.x + player.w > canvas.width) player.x = canvas.width - player.w;
 }
+
 
 window.addEventListener('mousemove', handleInput);
 window.addEventListener('touchmove', handleInput, { passive: false });
