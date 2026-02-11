@@ -121,7 +121,7 @@ p {
 
 .btn {
     padding: 12px 30px;
-    font-size: 1.2rem;
+    font-size: 12px;
     font-family: var(--font-body);
     font-weight: 600;
     border: none;
@@ -153,6 +153,7 @@ p {
 .yes-btn {
     background: #2dc653;
     color: white;
+    size: 8px;
     font-size: 1.2rem;
     padding: 16px 40px;
 }
@@ -178,7 +179,21 @@ p {
         gap: 20px;
     }
 }
-
+@media(max-width: 480px){
+    .btn {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+    .yes-btn {
+        padding: 10px 28px;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    .no-btn {
+        padding: 8px 25px;
+        font-size: 0.9rem;
+    }
+}
 .proposal-content h1 {
     animation: heartbeat 2s infinite;
 }
