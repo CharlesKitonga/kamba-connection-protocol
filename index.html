@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Music (Optional, user initiates) -->
+    <!-- <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio> -->
+
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- UI Overlay -->
+        <div id="ui-layer">
+            <div id="score-board">
+                <span>📊 Emotional ROI Index: </span>
+                <div class="progress-bar">
+                    <div id="love-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <h1>Dear Esteemed Wakwituu...</h1>
+            <p>Your kamba friend respectfully submits a Valentine Proposal for financial review and not just mangoes :)</p>
+            <p>Before approval, please complete the Emotional Due Diligence Assessment™. </p>
+            <button id="start-btn" class="btn"> Begin Risk Evaluation since it's your final year</button>
+        </div>
+
+        <!-- Proposal Modal (Hidden initially) -->
+        <div id="proposal-screen" class="screen hidden">
+            <div class="proposal-content">
+                <h1>Wait… Before You Click 👀</h1>
+
+                <div id="story-text" class="sub-text"></div>
+
+                <h2 style="margin:30px 0;">
+                    So, Charity Kimeu…
+                    <br>
+                    Will you be my
+                    <br>✨ Official IT-Valentine Partner? 💼❤️
+                </h2>
+
+                <div class="buttons">
+                    <button id="yes-btn" class="btn yes-btn">
+                        Approve This Friendship Upgrade 😌
+                    </button>
+                    <button id="no-btn" class="btn no-btn">
+                        Conduct Further Review 😅
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Celebration Overlay -->
+         <div id="celebration-screen" class="screen hidden">
+            <h1>🎉 Proposal Approved! 🎉</h1>
+
+            <p>
+                The Finance Division has officially
+                authorized the IT Department’s request.
+            </p>
+
+            <p>
+                10 years of friendship.
+                Zero audit issues.
+                Infinite good vibes.
+            </p>
+
+            <p>
+                Thank you for being one of the real ones.
+                This was never about romance pressure —
+                just proof that your IT friends can execute.
+            </p>
+
+            <p style="margin-top:20px;">
+                ❤️ Long-term partnership secured.
+            </p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
