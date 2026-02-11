@@ -303,6 +303,9 @@ const storyLines = [
     "But I kind of knew this one would be different. Our worlds didn’t even look similar… yet somehow they aligned.",
     "Charming. Sensational. Fuuuun 😂 But what stood out the most? Your humility.",
     "Somewhere along the way, I grew to appreciate you deeply.",
+    " We've really had some joy eyy… 😆😆😆",
+    "So I just wanted to say… thank you. ❤️ ,You are truly one of the BEST people I have met in my life and an absolutely awesome friend. 😅😅😅",
+    "Words can never fully describe how amazing you are… but I promise, this little game is my attempt to show it. 🥹✨",
     "10 years later… here we are."
 ];
 
@@ -356,22 +359,24 @@ function startGame() {
 startBtn.addEventListener('click', startGame);
 
 yesBtn.addEventListener('click', () => {
-    yesBtn.style.boxShadow = "0 0 30px rgba(45, 198, 83, 0.9)";
-    yesBtn.style.transform = "scale(1.1)";
+    proposalScreen.classList.remove('active');
+    proposalScreen.classList.add('hidden');
+    celebrationScreen.classList.remove('hidden');
+    celebrationScreen.classList.add('active');
 
+    // YES Glow effect (subtle)
+    yesBtn.style.boxShadow = '0 0 30px 5px #2dc653';
     setTimeout(() => {
-        proposalScreen.classList.remove('active');
-        proposalScreen.classList.add('hidden');
-        celebrationScreen.classList.remove('hidden');
-        celebrationScreen.classList.add('active');
+        yesBtn.style.boxShadow = ''; // remove glow
+    }, 1000);
 
-        setTimeout(() => {
-            const hiddenMessage = document.getElementById("hidden-message");
-            if (hiddenMessage) hiddenMessage.style.opacity = "1";
-        }, 3000);
-
-    }, 600);
+    // Show hidden message after 3 seconds
+    setTimeout(() => {
+        const hiddenMsg = document.getElementById('hidden-message');
+        hiddenMsg.classList.remove('hidden');
+    }, 3000);
 });
+
 
 // RUNAWAY BUTTON
 noBtn.addEventListener('mouseover', moveNoButton);

@@ -82,8 +82,9 @@ canvas {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: auto;
     padding: 20px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background: rgba(255, 240, 243, 0.9);
     z-index: 20;
@@ -101,6 +102,23 @@ canvas {
     pointer-events: auto;
     display: flex;
 }
+#hidden-message {
+    display: none; /* hidden by default */
+    font-size: 1.1rem;
+    margin-top: 20px;
+    color: #c9184a;
+    text-align: center;
+}
+
+#hidden-message.show {
+    display: block;
+}
+
+.yes-btn-glow {
+    box-shadow: 0 0 30px 5px #2dc653;
+    transition: box-shadow 0.5s ease;
+}
+
 
 h1 {
     font-family: var(--font-heading);
@@ -165,6 +183,15 @@ p {
     transition: all 0.2s;
 }
 
+
+.proposal-content {
+    width: 100%;
+    max-width: 500px; /* keeps content readable on large screens */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
 /* Animations */
 @keyframes heartbeat {
     0% { transform: scale(1); }
@@ -180,9 +207,15 @@ p {
     }
 }
 @media(max-width: 480px){
+     .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }   
     .btn {
         padding: 8px 20px;
         font-size: 0.9rem;
+        width: 100%;
+        max-width: 250px;
     }
     .yes-btn {
         padding: 10px 28px;
@@ -193,7 +226,4 @@ p {
         padding: 8px 25px;
         font-size: 0.9rem;
     }
-}
-.proposal-content h1 {
-    animation: heartbeat 2s infinite;
 }
